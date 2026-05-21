@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BotCraft — Robotics & Programming Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --navy:#1a2a6c;
+    --navy-light:#2a3d9e;
+    --navy-pale:#eef1fb;
+    --text:#1a1a2e;
+    --muted:#5a5f7a;
+    --border:#e2e6f0;
+    --white:#ffffff;
+    --bg:#f7f8fc;
+    --card:#ffffff;
+  }
+  body{
+  font-family:'Cairo',sans-serif;
+  color:var(--text);
+  background:var(--white);
+  line-height:1.6
+}
+
+/* BOTCRAFT BRAND FONT */
+.nav-logo span,
+.hero h1,
+.section-title,
+.ft-logo{
+  font-family:'Orbitron',sans-serif;
+  letter-spacing:.5px;
+}
+
+
+  /* NAV */
+  .logo-img{
+  height: 155px;
+  width:auto;
+  object-fit:contain;
+}
+  nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--border);padding:0 5%}
+  .nav-inner{max-width:1810px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+  .nav-logo{display:flex;align-items:center;gap:0px}
+  .nav-links{display:flex;gap:28px}
+  .nav-links a{font-size:14px;color:var(--muted);font-weight:500;transition:color .2s}
+  .nav-links a:hover{color:var(--navy)}
+
+
+  /* HERO */
+  .hero{background:var(--bg);padding:90px 5% 80px;text-align:center}
+  .hero-inner{max-width:780px;margin:0 auto}
+  .hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--navy-pale);color:var(--navy);font-size:12px;font-weight:600;padding:5px 14px;border-radius:20px;letter-spacing:.5px;margin-bottom:24px;text-transform:uppercase}
+  .hero h1{font-size:clamp(20px,7vw,35px);font-weight:900;line-height:1.15;color:var(--navy);margin-bottom:20px;letter-spacing:-1px}
+  .hero h1 span{color:var(--navy-light)}
+  .hero p{font-size:17px;color:var(--muted);max-width:560px;margin:0 auto 36px}
+  .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn-primary{background:var(--navy);color:#fff;padding:13px 28px;border-radius:9px;font-weight:600;font-size:15px;transition:background .2s}
+  .btn-primary:hover{background:var(--navy-light)}
+  .btn-outline{border:1.5px solid var(--navy);color:var(--navy);padding:12px 28px;border-radius:9px;font-weight:600;font-size:15px;transition:all .2s}
+  .btn-outline:hover{background:var(--navy-pale)}
+  .hero-stats{display:flex;justify-content:center;gap:40px;margin-top:56px;flex-wrap:wrap}
+  .stat{text-align:center}
+  .stat .num{font-size:32px;font-weight:800;color:var(--navy)}
+  .stat .lbl{font-size:13px;color:var(--muted);margin-top:2px}
+
+  /* SECTION BASE */
+  section{padding:80px 5%}
+  .section-inner{max-width:1100px;margin:0 auto}
+  .section-tag{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:10px}
+  .section-title{font-size:clamp(26px,3.5vw,38px);font-weight:800;color:var(--navy);margin-bottom:14px;letter-spacing:-.5px}
+  .section-sub{font-size:16px;color:var(--muted);max-width:560px}
+  .section-header{margin-bottom:50px}
+
+  /* ABOUT */
+  .about{background:var(--white)}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .about-text p{font-size:15.5px;color:var(--muted);margin-bottom:16px;line-height:1.75}
+  .pillars{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+  .pillar{background:var(--bg);border-radius:10px;padding:16px 18px;display:flex;align-items:flex-start;gap:12px}
+  .pillar-icon{width:36px;height:36px;background:var(--navy-pale);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .pillar-icon svg{width:18px;height:18px;stroke:var(--navy);fill:none;stroke-width:2}
+  .pillar-title{font-size:13.5px;font-weight:700;color:var(--text);margin-bottom:0px}
+  .pillar-desc{font-size:12.5px;color:var(--muted)}
+  .about-visual{background:var(--navy);border-radius:20px;padding:40px;display:flex;flex-direction:column;gap:20px}
+  .av-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:16px 20px}
+  .av-label{font-size:11px;color:rgba(255,255,255,.55);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+  .av-val{font-size:22px;font-weight:800;color:#fff}
+  .av-val small{font-size:13px;font-weight:400;color:rgba(255,255,255,.6);margin-left:6px}
+
+  /* PROJECTS */
+  .projects{background:var(--bg)}
+  .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+  .project-card{background:var(--card);border-radius:14px;border:1px solid var(--border);overflow:hidden;transition:transform .2s,box-shadow .2s}
+  .project-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(26,42,108,.1)}
+  .proj-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:52px;position:relative;overflow:hidden}
+  .proj-img.c1{background:linear-gradient(135deg,#eafaf500,#2d383400)}
+  .proj-img.c2{background:linear-gradient(135deg,#eafaf500,#b5f0da00)}
+  .proj-img.c3{background:linear-gradient(135deg,#fff5e6,#fde4b0)}
+  .proj-img.c4{background:linear-gradient(135deg,#fbeaf0,#f4c0d1)}
+  .proj-body{padding:20px}
+  .proj-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+  .tag{font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;background:var(--navy-pale);color:var(--navy)}
+  .proj-title{font-size:16px;font-weight:700;color:var(--text);margin-bottom:8px}
+  .proj-desc{font-size:13.5px;color:var(--muted);line-height:1.6}
+  .proj-status{display:inline-flex;align-items:center;gap:5px;margin-top:14px;font-size:12px;font-weight:600}
+  .proj-status .dot{width:7px;height:7px;border-radius:50%}
+  .dot-green{background:#22c55e}
+  .dot-blue{background:#3b82f6}
+  .dot-amber{background:#f59e0b}
+  .status-green{color:#16a34a}
+  .status-blue{color:#2563eb}
+  .status-amber{color:#d97706}
+
+  /* EVENTS */
+  .events{background:var(--white)}
+  .events-list{display:flex;flex-direction:column;gap:20px}
+  .event-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px 28px;display:flex;align-items:center;gap:24px;transition:box-shadow .2s}
+  .event-card:hover{box-shadow:0 6px 20px rgba(26,42,108,.08)}
+  .event-date{background:var(--navy);color:#fff;border-radius:12px;padding:14px 16px;text-align:center;min-width:64px;flex-shrink:0}
+  .event-date .month{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;opacity:.75}
+  .event-date .day{font-size:26px;font-weight:800;line-height:1}
+  .event-info{flex:1}
+  .event-title{font-size:16px;font-weight:700;color:var(--text);margin-bottom:4px}
+  .event-meta{font-size:13px;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap}
+  .event-badge{font-size:11.5px;font-weight:600;padding:4px 12px;border-radius:20px}
+  .badge-upcoming{background:#dcfce7;color:#15803d}
+  .badge-past{background:#f1f5f9;color:#64748b}
+  .badge-ongoing{background:#dbeafe;color:#1d4ed8}
+
+  /* CONTACT */
+  .contact{background:var(--bg)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start}
+  .contact-info p{font-size:15px;color:var(--muted);margin-bottom:28px;line-height:1.75}
+  .contact-detail{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .cd-icon{width:38px;height:38px;background:var(--navy-pale);border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .cd-icon svg{width:17px;height:17px;stroke:var(--navy);fill:none;stroke-width:2}
+  .cd-text .cd-lbl{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px}
+  .cd-text .cd-val{font-size:14px;font-weight:600;color:var(--text)}
+  .contact-form{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:36px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+  .form-group{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+  .form-group label{font-size:13px;font-weight:600;color:var(--text)}
+  .form-group input,.form-group select,.form-group textarea{padding:11px 14px;border:1.5px solid var(--border);border-radius:9px;font-size:14px;color:var(--text);background:var(--bg);outline:none;transition:border .2s;font-family:inherit}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--navy)}
+  .form-group textarea{resize:vertical;min-height:110px}
+  .form-submit{width:100%;background:var(--navy);color:#fff;border:none;padding:13px;border-radius:9px;font-size:15px;font-weight:700;cursor:pointer;transition:background .2s}
+  .form-submit:hover{background:var(--navy-light)}
+
+  /* FOOTER */
+  footer{background:var(--navy);color:rgba(255,255,255,.75);text-align:center;padding:32px 5%}
+  footer .ft-logo{font-size:20px;font-weight:800;color:#fff;margin-bottom:8px}
+  footer p{font-size:13px}
+  footer a{color:rgba(255,255,255,.7)}
+
+  @media(max-width:768px){
+    .about-grid,.contact-grid{grid-template-columns:1fr}
+    .about-visual{display:none}
+    .form-row{grid-template-columns:1fr}
+    .event-card{flex-direction:column;align-items:flex-start}
+    .nav-links{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <a href="index.html">
+        <img src="https://github.com/BotCraft-web/Home/blob/main/PNG%20logo.png?raw=true" alt="BotCraft Logo" class="logo-img">
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="#about">About us</a>
+      <a href="#projects">Projects</a>
+      <a href="#events">Events</a>
+      <a href="contact.html">Contact /Join us!</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l2 2"/></svg>
+      Ahmed Abidli High-School   ,   Ouargla, Algeria
+    </div>
+    <h1>Robotics & Programming<br/> <span>Club.</span></h1> 
+    <p>BotCraft is a student-driven club where curious minds explore robotics, programming, and mathematics — Which's one the biggest teen based club in Algeria hands-on, project-based, and competitive.</p>
+    <div class="hero-btns">
+      <a href="contact.html" class="btn-primary">Join BotCraft!</a>
+      <a href="#projects" class="btn-outline">Our Projects</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="num">19+</div><div class="lbl">Members</div></div>
+      <div class="stat"><div class="num">5+</div><div class="lbl">Projects Done</div></div>
+      <div class="stat"><div class="num">3</div><div class="lbl">Competitions Joined</div></div>
+      <div class="stat"><div class="num">2</div><div class="lbl">Years Active</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-tag">About the Club</div>
+        <h2 class="section-title">Where Curiosity Meets Engineering</h2>
+        <p>BotCraft is the official Robotics &amp; Programming club of Ahmed Abidli High-School. We bring together students passionate about technology, science, and innovation — giving them the tools, mentorship, and community to turn ideas into reality.</p>
+        <p>Whether you're a beginner taking your first steps in coding, or already building circuits, BotCraft is your launchpad.</p>
+        <div class="pillars">
+          <div class="pillar">
+            <div class="pillar-icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <div><div class="pillar-title">Programming</div><div class="pillar-desc">Python, C++, Arduino &amp; more</div></div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            </div>
+            <div><div class="pillar-title">Robotics</div><div class="pillar-desc">Build &amp; program real robots</div></div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">
+              <svg viewBox="0 0 24 24"><path d="M2 20h20M6 20V10M12 20V4M18 20v-7"/></svg>
+            </div>
+            <div><div class="pillar-title">Mathematics</div><div class="pillar-desc">Problem solving &amp; algorithms</div></div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div><div class="pillar-title">Teamwork</div><div class="pillar-desc">Collaborate on real projects</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="av-card">
+          <div class="av-label">Club Founded</div>
+          <div class="av-val">2024 <small>By teacher Dida Marouane</small></div>
+        </div>
+        <div class="av-card">
+          <div class="av-label">Courses & Intrests</div>
+          <div class="av-val" style="font-size:15px;line-height:1.8">Arduino · Python · C++ · PowerPoint </div>
+        </div>
+        <div class="av-card">
+          <div class="av-label">Meeting Schedule</div>
+          <div class="av-val">Thursday <small>4:00 PM – 5:30 PM</small></div>
+        </div>
+      </div>
+    </div>
+    <center><img src="https://github.com/BotCraft-web/Home/blob/main/BOTcRAFT,.png?raw=true" alt="BotCraft Logo" width="444"></center>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Our Work</div>
+      <h2 class="section-title">Projects &amp; Achievements</h2>
+      <p class="section-sub">A showcase of what our members have built — from autonomous robots to smart systems and software tools.</p>
+    </div>
+    <div class="projects-grid">
+
+      <!-- BNH Pest-Guard — real logo image -->
+      <a href="BNH PEST-GUARD.html" style="text-decoration:none;color:inherit">
+      <div class="project-card">
+        <div class="proj-img c1" style="padding:0">
+          <img src="https://github.com/BotCraft-web/Home/blob/main/BNH%20LOGO%202.png?raw=true" alt="BNH Pest-Guard" style="width:70%;height:70%;object-fit:cover">
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags"><span class="tag">Creative</span><span class="tag">Sustainablty Focused</span><span class="tag">Eco Friendly</span></div>
+          <div class="proj-title">BNH Pest-Guard</div>
+          <div class="proj-desc">An innovative system that detects, monitors, and eliminates harmful insects using automated technology and eco-friendly solutions, significantly reducing the need for chemical pesticides!</div>
+          <div class="proj-status status-green"><span class="dot dot-green"></span>Completed</div>
+        </div>
+      </div>
+      </a>
+
+      <div class="project-card">
+        <div class="proj-img c2">
+          <img src="https://github.com/BotCraft-web/Home/blob/main/Lati%20Logo.png?raw=true" alt="LATI-System" style="width:60%;height:60%;object-fit:cover">
+        </div>
+        <div class="proj-body">
+          <div class="proj-tags"><span class="tag">Efficient</span><span class="tag">Local solutions</span></div>
+          <div class="proj-title">LATI-System</div>
+          <div class="proj-desc">is a complete sewage infrastructure monitoring system that detects pipe blockages, leaks, cracks, overflows, and underground failures in wastewater networks using Advanced sensors and technologies.</div>
+          <div class="proj-status status-green"><span class="dot dot-green"></span>Completed</div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="proj-img c4">🚁</div>
+        <div class="proj-body">
+          <div class="proj-tags"><span class="tag">Mechanics</span><span class="tag">Fire protection</span></div>
+          <div class="proj-title">KJSM</div>
+          <div class="proj-desc">is a smart drone system that detects smoke, gas leaks, and rising temperatures in forests, instantly sends GPS alerts to emergency services, and autonomously monitors and responds to fire outbreaks.</div>
+          <div class="proj-status status-blue"><span class="dot dot-blue"></span>In Progress</div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="proj-img c3">📡</div>
+        <div class="proj-body">
+          <div class="proj-tags"><span class="tag">Disabled People</span><span class="tag">Medical field</span></div>
+          <div class="proj-title">The smart Stick</div>
+          <div class="proj-desc">An Arduino smart white cane that alerts visually impaired (Blind) users to nearby obstacles and dangerously high temperatures.</div>
+          <div class="proj-status status-green"><span class="dot dot-green"></span>Completed</div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="proj-img c1">🚗</div>
+        <div class="proj-body">
+          <div class="proj-tags"><span class="tag">Arduino</span><span class="tag">Ultrasonic</span><span class="tag">Bluetooth</span></div>
+          <div class="proj-title">The smart car</div>
+          <div class="proj-desc">A Bluetooth-controlled RC car with integrated smoke, gas, and fire sensors that can navigate autonomously while detecting and alerting environmental hazards in real time.</div>
+          <div class="proj-status status-green"><span class="dot dot-green"></span>Completed</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="events" id="events">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-tag">Events & Workshops</div>
+      <h2 class="section-title">What's Happening at BotCraft</h2>
+      <p class="section-sub">From internal workshops to inter-Universitie competitions and events, here's what we've been up to.</p>
+    </div>
+    <div class="events-list">
+      <div class="event-card">
+        <div class="event-date"><div class="month">Feb</div><div class="day">24</div></div>
+        <div class="event-info">
+          <div class="event-title">The National Award for School Innovation 2026</div>
+          <div class="event-meta"><span>📍 Ouargla, Algeria</span><span>👥 26 participants</span></div>
+          <div class="event-meta"><span>📍 Algeirs, Algeria</span><span>🏆 LATI-System — 2nd Place</span></div>
+        </div>
+        <span class="event-badge badge-past">Completed</span>
+      </div>
+      <div class="event-card">
+        <div class="event-date"><div class="month">Nov</div><div class="month">2026</div><div class="day">06</div></div>
+        <div class="event-info">
+          <div class="event-title">C++ yearly Workshop</div>
+          <div class="event-meta"><span>📍 Club Center, Ahmed Abidli HS</span></div>
+        </div>
+        <span class="event-badge badge-upcoming">Upcoming</span>
+      </div>
+      <div class="event-card">
+        <div class="event-date"><div class="month">May</div><div class="day">04</div></div>
+        <div class="event-info">
+          <div class="event-title">The scientific demonstration of PFC 2026 </div>
+          <div class="event-meta"><span>📍 Kasdi-Merbah University</span></div>
+        </div>
+        <span class="event-badge badge-past">Completed</span>
+      </div>
+      <div class="event-card">
+        <div class="event-date"><div class="month">May</div><div class="day">05</div></div>
+        <div class="event-info">
+          <div class="event-title">Inovex 2025</div>
+          <div class="event-meta"><span>📍 The AI center of Ouargla </span></div>
+        </div>
+        <span class="event-badge badge-past">Completed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-logo">⚙ BotCraft</div>
+  <p>Robotics, Programming &amp; Mathematics Club</p>
+  <p style="margin-top:8px;font-size:12px;opacity:.6">© 2026 BotCraft. Built By Co-manager Bennouh Mohamed.</p>
+</footer>
+
+</body>
+</html>
