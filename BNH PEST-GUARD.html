@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BNH Pest-Guard — BotCraft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Orbitron:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --navy:#1a2a6c;
+    --navy-light:#2a3d9e;
+    --navy-pale:#eef1fb;
+    --text:#1a1a2e;
+    --muted:#5a5f7a;
+    --border:#e2e6f0;
+    --white:#ffffff;
+    --bg:#f7f8fc;
+    --card:#ffffff;
+  }
+  body{
+  font-family:'Cairo',sans-serif;
+  color:var(--text);
+  background:var(--white);
+  line-height:1.6
+}
+
+/* BOTCRAFT BRAND FONT */
+.nav-logo span,
+.hero h1,
+.section-title,
+.ft-logo{
+  font-family:'Orbitron',sans-serif;
+  letter-spacing:.5px;
+}
+
+  /* NAV */
+  .logo-img{
+  height: 155px;
+  width:auto;
+  object-fit:contain;
+}
+  nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--border);padding:0 5%}
+  .nav-inner{max-width:1810px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
+  .nav-logo{display:flex;align-items:center;gap:0px}
+  .nav-links{display:flex;gap:28px}
+  .nav-links a{font-size:14px;color:var(--muted);font-weight:500;text-decoration:none;transition:color .2s}
+  .nav-links a:hover{color:var(--navy)}
+
+  /* HERO (Adapted for Project Page) */
+  .hero{background:var(--bg);padding:90px 5% 60px;text-align:center}
+  .hero-inner{max-width:800px;margin:0 auto}
+  .hero h1{font-size:clamp(26px,5vw,42px);font-weight:900;line-height:1.15;color:var(--navy);margin-bottom:1px;letter-spacing:-1px}
+  
+  .proj-tags{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:24px}
+  .tag{font-size:12px;font-weight:600;padding:0px 12px;border-radius:20px;background:var(--navy-pale);color:var(--navy)}
+
+  /* SECTION BASE */
+  section{padding:80px 5%}
+  .section-inner{max-width:900px;margin:0 auto}
+  .section-tag{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);margin-bottom:1px}
+  .section-title{font-size:clamp(24px,3vw,32px);font-weight:800;color:var(--navy);margin-bottom:2px;letter-spacing:-.5px}
+  
+  /* PROJECT CONTENT STYLES (NEW FOR THIS PAGE) */
+  .project-content p {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 2px;
+      line-height: 1.8;
+  }
+
+  .media-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 40px;
+      box-shadow: 0 6px 20px rgba(26,42,108,.05);
+  }
+
+  .media-box h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+  }
+
+  /* Responsive 16:9 Containers for Video and Presentation */
+  .embed-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+  }
+  
+  .embed-container iframe, 
+  .embed-container video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+  }
+
+  /* FOOTER */
+  footer{background:var(--navy);color:rgba(255,255,255,.75);text-align:center;padding:32px 5%}
+  footer .ft-logo{font-size:20px;font-weight:800;color:#fff;margin-bottom:8px}
+  footer p{font-size:13px}
+  footer a{color:rgba(255,255,255,.7)}
+
+  @media(max-width:768px){
+    .nav-links{display:none}
+    .media-box { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <!-- Make sure this links back to your home page -->
+      <a href="index.html">
+        <img src="https://github.com/BotCraft-web/Home/blob/main/PNG%20logo.png?raw=true" alt="BotCraft Logo" class="logo-img">
+      </a>
+    </div>
+    <div class="nav-links">
+      <!-- Updated links to point back to the main page sections -->
+      <a href="index.html#about">About us</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="index.html#events">Events</a>
+      <a href="contact.html">Contact /Join us!</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PROJECT HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <img src="https://github.com/BotCraft-web/Home/blob/main/BNH%20LOGO%202.png?raw=true" alt="BNH Pest-Guard Logo" style="height: 330px; ">
+    <div class="proj-tags">
+        <span class="tag">Creative</span>
+        <span class="tag">Sustainability Focused</span>
+        <span class="tag">Eco Friendly</span>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECT DETAILS -->
+<section class="about" id="details">
+  <div class="section-inner project-content">
+    <div class="section-tag">Project Overview</div>
+    <h2 class="section-title">Automating Pest Control Safely</h2>
+    
+    <!-- WRITE YOUR FULL DESCRIPTION HERE -->
+    <p>
+      An innovative system that detects, monitors, and eliminates harmful insects using automated technology and eco-friendly solutions, significantly reducing the need for chemical pesticides!
+    </p>
+    <p>
+      [REPLACE THIS TEXT: Add your full detailed description of how the BNH Pest-Guard works, the hardware you used (Arduino, sensors, etc.), the programming challenges you overcame, and the ultimate goal of the project here. You can add as many paragraphs as you need.]
+    </p>
+    <p>
+      [REPLACE THIS TEXT: This is a great place to talk about the impact this project has on local agriculture, homes, or businesses, and how it aligns with BotCraft's mission to solve real-world problems.]
+    </p>
+  </div>
+</section>
+
+<!-- MEDIA SECTION (PPT & VIDEO) -->
+<section class="projects" id="media">
+  <div class="section-inner">
+    <div class="section-header" style="margin-bottom: 40px;">
+      <div class="section-tag">Media & Showcase</div>
+      <h2 class="section-title">See It In Action</h2>
+    </div>
+
+    
+
+    <!-- PROJECT VIDEO -->
+    <div class="media-box">
+      <h3>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+        Demonstration Video
+      </h3>
+      <p style="font-size: 14.5px; color: var(--muted); margin-bottom: 12px;">Watch the BNH Pest-Guard prototype actively identifying and managing pests in a real-world scenario.</p>
+      <div class="embed-container">
+        <iframe width="1905" height="828" src="https://www.youtube.com/embed/PSq0XaQwd6g" title="BNH Pest Guard Final" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+         
+    <!-- POWERPOINT PRESENTATION -->
+    <div class="media-box">
+      <h3>
+        <svg width="24" height="90" viewBox="0 0 24 24" fill="none" stroke="var(--navy)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/></svg>
+        Project Presentation
+      </h3>
+      <p style="font-size: 14.5px; color: var(--muted); margin-bottom: 16px;">Flip through our slides to understand the technical specifications, schematics, and the theory behind BNH Pest-Guard.</p>
+      <div class="embed-container">
+        <!-- We use Microsoft's Office Viewer and point it to your raw PPTX file -->
+      <iframe src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/BotCraft-web/Home/main/BNH%20Pest-Guard%20FINAL.pdf&embedded=true" width="100%" height="100%" frameborder="0"></iframe>
+      </div>
+      
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-logo">⚙ BotCraft</div>
+  <p>Robotics, Programming &amp; Mathematics Club</p>
+  <p style="margin-top:8px;font-size:12px;opacity:.6">© 2026 BotCraft. Built By Co-manager Bennouh Mohamed.</p>
+</footer>
+
+</body>
+</html>
